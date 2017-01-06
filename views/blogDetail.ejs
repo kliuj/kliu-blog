@@ -1,0 +1,31 @@
+<ul class="side_function">
+	<li>
+		<a href="javascript:void(0);" class="function_btn" id="btnToTop" onclick="window.scrollTo(0,0);" style="display: block;">
+			<i class="function_top"></i>回到顶端
+		</a>
+	</li>
+</ul>
+<div class="desContainer">
+	<div class="despop_nav">
+		<p class="travelNum">
+			<span  id="userName"></span>的文章 /
+			<span id="travelName"></span>
+			<span class="praise active"><i id="praise"></i>赞</span>
+		</p>
+	</div>
+	
+	<div class="tdetail" >
+		
+	</div>
+	<div class="spinner">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
+	<input type="hidden" id="detailId" value="<%=detailId%>">
+	<script>
+		seajs.use('blogDetail.js', function(blogDetail) {
+			(new blogDetail()).init()
+		});
+	</script>
+</div>

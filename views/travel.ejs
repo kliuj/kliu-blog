@@ -1,0 +1,40 @@
+<div class="desContainer" >
+	<div class="despop_nav" >
+		<p class="travelNum">
+			<%if(showName){%>
+				<%= theName%>
+				<%}else{%>
+					全部
+					<%}%>共有<%=travels.num%>条游记</p>
+	</div>
+	<div class="forfall">
+	<% travels.blogList.forEach(function(travel,i){%>
+		    <div class="inl" data-type="<%=travel.grouptype%>">
+			   <div class="etext">
+			   	<a href="/travelDetail/d/<%=travel._id%>">
+			   		<img src="/img/pic.jpg" style="width: 100%;">
+			   		<p class="tword"><%= travel.title %><p>
+			   		<p class="opts">
+			   			<i class="numview" title="浏览">3737</i> 
+			   			<i class="want" title="喜欢">50</i>&nbsp;&nbsp;
+			   			<i class="numreply" title="回复">15</i>
+			   		</p>
+			   	</a>
+			   	<%if(!showName || user.name == "kailiu"){%>
+				   	<a href="/card/<%=travel.user %>">
+				   		<p class="tname"><%= travel.user %></p>
+				   	</a>
+			   	<%}%>	
+			   	<%if((user.name == travel.user  && showName) || user.name =="kailiu") {%>
+			   		<span class="tdelete" data-id="<%=travel._id%>" data-name="<%=travel.user%>">删除</span>
+			   	<%}%>	
+			   </div>
+		    </div>
+	<% }) %>    
+   <div style="clear:both"></div>
+</div>
+<script>
+	seajs.use('travelList.js', function(travelList) {
+		(new travelList()).init()
+	});
+</script>

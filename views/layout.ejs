@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			<%= title %>
+		</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="/img/logo.png" rel="shortcut icon" type="image/x-icon">
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel='stylesheet' href='/stylesheets/resize.css' />
+		<script src="/js/sea.js"></script>
+		<script src="/js/seaconfig.js"></script>
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="wrapper">
+				<ul class="nav left-nav">
+                  <li  <% if(num==1 ){ %> class="active"
+								<% } %> ><a href="/">首页</a></li>
+                  <li  <% if(num==5 ){ %> class="active"
+									<% } %> ><a href="/blog">文章</a></li>
+                  <li  <% if(num==6 ){ %> class="active"
+									<% } %> ><a href="/travels">游记</a></li>
+                  <li >
+                    <form action="/search" method="get" class="search"><i class="icon-search"></i>
+                      <input id="keyword" type="text" name="q" placeholder="全站搜索" class="span2 input-large">
+                    </form>
+                  </li>
+                 
+                </ul>
+                <ul class="nav right-nav">
+                	 
+                	<% if(!user.name) {%>
+	  					<li <% if(num==3 ){ %> class="active"
+						<% } %> ><a href="/reg">注册</a></li>
+						<li <% if(num==2 ){ %> class="active"
+						<% } %> ><a href="/login">登录</a></li>
+						<% } else {%>
+							<li id="logOut"><a href="javascript:void(0)">退出登录</a></li>
+						<a href="/user" title="<%= user.name%>" class="userLink"><img src="<%=user.img || '/img/userIcon.gif'%>" class="userIcon"></a>
+						
+						<script>
+							var logOut = document.getElementById("logOut");
+							logOut.addEventListener("click",function(){
+								if(confirm("您确定要退出当前用户吗？")){
+									location.href="/logout"
+								}
+							})
+						</script>
+					<% } %>
+					<li id="logOut"><a href="/writeBlog" >发布新内容</a></li>
+                </ul>
+			</div>
+			<i class="mobileDown"></i>
+		</div>
+		<div id="container" class="container">
+			<% if (error) { %>
+				<div class="alert alert-error" >
+					<%= error %>
+				</div>
+			<% } %>
+			<%- body %>
+				<footer>
+					<p class="myBlogLink">本站后台内容是基于 NodeJS 搭建    2016         <a href="http://weibo.com/1766419604/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" class="me">about me   lk</a> </p>
+				</footer>
+		</div>
+		<script>
+			seajs.use("mobile.js",function(mobile){
+				(new mobile()).init()
+			})
+		</script>
+	</body>
+
+</html>

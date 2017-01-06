@@ -1,0 +1,8 @@
+<form class="writeTravel" method="post" action="/writeTravel" id="formWrite">
+	<%- partial('commonEdit')%>
+</form>
+<script>
+	seajs.use('writeTravel.js',function(writeTravel){
+		(new writeTravel()).init()
+	})
+</script>

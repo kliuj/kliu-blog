@@ -1,0 +1,35 @@
+<div class="top-info clearfix">
+	<div class="left">
+		<div class="baseinfo module clearfix">
+			<div class="hd">
+				<%= user.name %><span style="color:#666;margin-left:10px;font-size:12px;"><%=user.sign%></span>
+			</div>
+			<div class="main-info clearfix">
+				<div class="head-pic"><img src="<%=user.img || '/img/userIcon.gif'%>" width="80" height="80"></div>
+			</div>
+			<a href="/editUser" class="changeInfo">修改资料</a>
+		</div>
+		<ul class="moreLink">
+			<li><a href="/blog/u/<%=user.name%>">我的文章</a></li>
+			<li><a href="/travels/u/<%=user.name%>">我的游记</a></li>	
+		</ul>	
+	</div>
+	<div class="right">
+		<div class="visit-info module">
+			<div class="hd">最近访问</div>
+			<div class="bd clearfix">
+				<div>
+					<div class="visitor">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<input id="username" value="<%=user.name%>" type="hidden">
+<script>
+	seajs.use("userInfo.js",function(userInfo){
+		(new userInfo()).init()
+	})
+</script>

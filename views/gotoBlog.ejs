@@ -1,0 +1,30 @@
+<ul class="listTab">
+	<%
+		//列表页tab进行选中样式对比
+		var tnum  = 0;
+		if(type){
+			tnum =  parseInt(type);
+		}
+	%>
+	<% blogType.forEach(function(item,i){%>
+			<a 
+				<%if(i === 0 ){%>
+					href="/blog"
+				<%} else if (i === 5){%>
+					 href="/travels/5" target="_blank"
+				<%}else{%>
+					href="/blog/<%=i%>"
+				<%}%>
+				><li 
+					<%if(i === tnum) {%>
+						class="active"
+					<%}%>
+					><%=item%></li></a>
+	<%})%>
+</ul>
+<script>
+	GS={
+		type:<%if(type){ %> <%=type%> <%} else {%>''<%}%>
+	}
+</script>
+<%- partial('blogs') %>

@@ -1,0 +1,54 @@
+<div class="desContainer">
+	<div class="despop_nav">
+		<p class="travelNum"><span style="color:#F37369;margin-right: 5px;"> <%=title%> </span>的搜索结果</p>
+	</div>
+	<%if(data.blogList.length){%>
+		<div class="blogs clearfix">
+			<div class="blogLeft">
+				<ul class="blogUl">
+					<%data.blogList.forEach(function(item,index){ %>
+						<% var subTitle = item.title,
+							//由于不区分大小写，所以查找替换的时候就全部转为大写
+							num = subTitle.toUpperCase().indexOf(title.toUpperCase()),
+							//由于不限定大小写原则。可能是js匹配到JS。但是最终采用的是标题里面真正的内容
+							titleInStr = subTitle.substr(num,title.length),
+							titleBefore = subTitle.substr(0,num),
+							titleAfter = subTitle.substr( num + title.length,subTitle.length); %>
+				      	<li>
+							<a  <%if(item.type == 5){%>
+									href="/travelDetail/d/<%= item._id%>"
+								<%}else{%>
+									href="/blog/d/<%= item._id%>" 
+								<%}%>
+								class="title"><span style="color:#02AD23">「<%=blogType[item.type]%>」</span><%=titleBefore%><span style="color:#F37369;"><%=titleInStr%></span><%=titleAfter%></a>
+							<a href="/card/<%= item.user%>" class="u"><%=item.user%></a>
+							<%if(user.name =="kailiu"){%>
+								<span class="infos blogDel" data-id="<%= item.id%>" data-name="<%= item.user%>">删除</span>
+							<%}%>
+							<span class="infos"><%=item.sum%>读</span>
+						</li>
+			      	<%})%>
+				</ul>
+			</div>			
+		</div>
+		<div class="pagination clearfix" >
+	      <ul id="pageList">
+	      	<%if(data.prev){%>
+	      		<li data-id="0" id="prev"><a  href="/search?q=<%=title%>&page=<%=data.prev%>" >Prev</a></li>
+	      	<%}%>
+			<li class="active"><a href="javascript:void(0)" id="active">第<%=pageIndex%>页</a></li>
+			<%if(data.next){%>	
+				<li><a href="/search?q=<%=title%>&page=<%=data.next%>" id="next" data-id="2">Next</a></li>
+			<%}%>
+	      </ul>
+	      <div class="total label">共 <span id="totalPage"><%=data.num%></span> 页</div>
+	    </div>
+	 <% } else {%>
+	 	没有搜到相关内容，换个关键词试试
+	 <% } %>	
+</div>
+<script>
+	seajs.use('search.js', function(search) {
+		(new search()).init()
+	});
+</script>

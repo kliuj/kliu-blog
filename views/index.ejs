@@ -1,0 +1,29 @@
+<div class="desContainer">
+	<div class="despop_nav hot">
+		<p class="travelNum">热门推荐</p>
+	</div>
+	<div class="blogs" id="hot_recommend" style="display: none;">
+		
+	</div>
+	<div class="spinner" id="hot_recommend_load">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
+	<div class="despop_nav new">
+		<p class="travelNum">最新推荐</p>
+	</div>
+	<div class="blogs" id="new_recommend" style="display: none;">
+		
+	</div>
+	<div class="spinner" id="new_recommend_load">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
+</div>
+<script>
+	seajs.use("index.js",function(index){
+		(new index()).init()
+	})
+</script>

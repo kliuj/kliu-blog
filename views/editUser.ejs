@@ -1,0 +1,39 @@
+<div class="top-info clearfix">
+	<div class="left">
+		<div class="baseinfo module clearfix">
+			<form class="editForm"   method="post" action="/editUser">
+				<div class="infoCont">
+					<span>用户名：</span><%= user.name %>
+				</div>
+				<div class="infoCont">
+					<span>个性签名：</span><input type="text" id="personSign" name="personSign" value="<%=user.sign%>" placeholder="<%=user.sign || '请输入个性签名 '%>">
+				</div>	
+				<input type="hidden" id="domain" value="http://qiniu-plupload.qiniudn.com/">
+				<input type="hidden" id="uptoken_url" value="/uptoken">
+				<div class="infoCont">
+					<span>修改用户头像（小于1MB）：</span>
+					<div class="btn-lg " id="pickfiles" href="#">
+						<i class="glyphicon glyphicon-plus"></i>
+						<span>选择文件</span>
+					</div>
+					<input type="hidden" id="imgPic" name="imgPic" value="<%=user.img%>">
+				</div>
+				
+				<div class="main-info clearfix" id="head-pic">
+					<img src="<%=user.img || '/img/userIcon.gif'%>" width="80" height="80">
+				</div>
+				<div class="form-actions infoCont">
+					<span><button type="submit" class="btn btn-primary">提交</button></span>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+</div>
+<input id="username" value="<%=user.name%>" type="hidden">
+<script type="text/javascript" src="/js/src/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/src/plupload.full.min.js"></script>
+<script type="text/javascript" src="/js/src/ui.js"></script>
+<script type="text/javascript" src="/js/src/qiniu.js"></script>
+<script type="text/javascript" src="/js/src/main.js"></script>

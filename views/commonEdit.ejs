@@ -1,0 +1,29 @@
+<legend><%=title%></legend>
+<p class="tinfo">文章标题</p>
+<input type="text" class="input-normal check" id="ttile" data-name="标题" name="ttile" placeholder="<%= placeholder %>" >
+<p class="tinfo">文章正文</p>
+<div class="editIcon"><span class="daima" title="代码"></span></div>
+<div class="editCont">
+	<b>在此加入代码</b>
+	<span class="close"></span>
+	<textarea>
+	
+	</textarea>
+	<span class="dmBtn" id="confirmBtn">确定</span><span id="cancelBtn"  class="dmBtn">取消</span>
+</div>
+<textarea id="tdetail" name="tdetail" data-name="内容"  style="display: none;" class="check"></textarea>
+<div contenteditable="true" class="text-normal-div"  ></div>
+<p class="tinfo">文章类型</p>
+<select name="type" id="type" class="check select" data-name="类型">
+	<option value="1">随笔</option>
+	<option value="2">JavaScript</option>
+	<option value="3">NodeJS</option>
+	<option value="4">MongoDB</option>
+	<option value="5">游记</option>
+	<option value="6">Ejs</option>
+	<option value="7">CSS</option>
+	<option value="8">HTML</option>
+</select>
+<div class="form-actions">
+	<span id="formBtn" class="btn btn-travel">发布</span>
+</div>

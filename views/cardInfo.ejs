@@ -1,0 +1,20 @@
+<div class="top-info clearfix">
+	<div class="left">
+		<div class="baseinfo module clearfix">
+			<div class="hd">
+				<%= title %><span style="color:#666;margin-left:10px;font-size:12px;"><%=userData.sign%></span>
+			</div>
+			<div class="main-info clearfix">
+				<div class="head-pic"><img src="<%=userData.img || '/img/userIcon.gif'%>" width="80" height="80"></div>
+			</div>
+		</div>
+		<ul class="moreLink">
+			<li><a href="/blog/u/<%=title%>"><%=title%>的文章</a></li>
+			<li><a href="/travels/u/<%=title%>"><%=title%>的游记</a></li>	
+		</ul>	
+	</div>
+	<div class="right">
+		
+	</div>
+</div>
+<input id="username" value="<%=user.name%>" type="hidden">

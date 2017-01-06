@@ -1,0 +1,56 @@
+a:hover{
+	text-decoration:none !important
+}
+.delete{
+		height: 25px;
+    width: 47px;
+    float: right;
+    background-color: #59B359;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 25px;
+    border:none
+}
+.waterFlow
+{
+	 -webkit-column-count: 4;
+        /*-webkit-column-gap: 10px;
+        -webkit-column-rule: 5px solid #333;
+        -webkit-column-width: 210px;*/
+
+        -moz-column-count: 4;
+        /*-moz-column-gap: 20px;
+        -moz-column-rule: 5px solid #333;
+        -moz-column-width: 210px；*/
+
+        column-count: 4;
+        /*column-gap: 10px;
+        column-rule: 5px solid #333;
+        column-width: 210px；*/
+}
+form{
+display:inline-block
+}
+.span4Cont{
+	   max-height: 400px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #F5F5F5;
+    margin-bottom: 15px;
+    border: 1px solid #f8f8f8;
+    width: 228px;
+}
+.divC{
+	    height: 250px;
+    width: 500px;
+    border: 1px solid #aaaab4;
+    margin-top: 40px;
+    overflow: scroll;
+    background-color: #fff;
+    text-align: left;
+}
+.btn-say{
+	margin-left: 550px;
+}
